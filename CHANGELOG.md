@@ -1170,6 +1170,19 @@ Change Log
 * Add-on installation crashes (when conda not in PATH) ([#2725](../../pull/2725))
 
 
+[3.7.1] - 2017-11-17
+--------------------
+##### Enhancements
+* MDS: Support showing textual features as labels ([#2699](../../pull/2699))
+
+##### Bugfixes
+* Scatter Plot: Crash on metas column with all 0 values ([#2775](../../pull/2775))
+* canvas/canvasmain: Fix 'Examples' action handling in the welcome dialog ([#2779](../../pull/2779))
+* Nomogram on PyQt4 ([#2763](../../pull/2763))
+* Broken installation of Installation of wheels ([#2765](../../pull/2765))
+* Add-on installation crashes (when conda not in PATH) ([#2725](../../pull/2725))
+
+
 [3.7.0] - 2017-10-27
 --------------------
 ##### Enhancements
