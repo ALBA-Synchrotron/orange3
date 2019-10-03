@@ -688,6 +688,12 @@ Change Log
 * Addons install with conda by default
 
 
+[3.23.1] - 2019-10-03
+--------------------
+##### Bugfixes
+* Addons install with conda by default
+
+
 [3.23.0] - 2019-09-05
 --------------------
 ##### Enhancements
