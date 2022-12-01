@@ -18,7 +18,7 @@ from orangewidget.workflow.drophandler import SingleUrlDropHandler
 
 from Orange.data.table import Table, get_sample_datasets_dir
 from Orange.data.io import FileFormat, UrlReader, \
-    class_from_qualified_name, GenericHDF5Reader
+    class_from_qualified_name, GenericHDF5Reader # ALBA new import: GenericHDF5Reader
 from Orange.data.io_base import MissingReaderException
 from Orange.util import log_warnings
 from Orange.widgets import widget, gui
@@ -443,7 +443,10 @@ class OWFile(widget.OWWidget, RecentPathsWComboMixin):
             return lambda x=ex: self.Error.unknown(str(x))
 
         try:
-            self._update_sheet_combo()
+            if isinstance(self.reader, GenericHDF5Reader): # ALBA new lines 
+                self._hdf5_tree_model()
+            else:
+                self._update_sheet_combo()
         except Exception:
             return self.Error.sheet_error
 
