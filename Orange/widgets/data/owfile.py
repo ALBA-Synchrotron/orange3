@@ -4,7 +4,7 @@ from itertools import chain
 from urllib.parse import urlparse
 from typing import List, Dict, Any
 
-import h5py 
+import h5py # ALBA new import
 import numpy as np
 from AnyQt import QtWidgets 
 from AnyQt.QtWidgets import \
@@ -445,8 +445,9 @@ class OWFile(widget.OWWidget, RecentPathsWComboMixin):
         try:
             if isinstance(self.reader, GenericHDF5Reader): # ALBA new lines 
                 self._hdf5_tree_model()
-            else:
-                self._update_sheet_combo()
+                #self.reader.sheets = []
+            #else:
+            #    self._update_sheet_combo()
         except Exception:
             return self.Error.sheet_error
 
