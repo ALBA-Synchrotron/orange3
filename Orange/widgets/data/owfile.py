@@ -443,11 +443,7 @@ class OWFile(widget.OWWidget, RecentPathsWComboMixin):
             return lambda x=ex: self.Error.unknown(str(x))
 
         try:
-            if isinstance(self.reader, GenericHDF5Reader): # ALBA new lines 
-                self._hdf5_tree_model()
-                #self.reader.sheets = []
-            #else:
-            #    self._update_sheet_combo()
+            self._update_sheet_combo()
         except Exception:
             return self.Error.sheet_error
 
@@ -534,6 +530,9 @@ class OWFile(widget.OWWidget, RecentPathsWComboMixin):
         
         # Loop that prevents the program to keep running other commands while
         # the user has not chosen which data to load
+        while self.reader.data is None:
+            QCoreApplication.processEvents() 
+        
         while self.reader.data is None:
             QCoreApplication.processEvents() 
         
