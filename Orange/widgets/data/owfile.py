@@ -4,7 +4,7 @@ from itertools import chain
 from urllib.parse import urlparse
 from typing import List, Dict, Any
 
-import h5py # ALBA new import
+import h5py 
 import numpy as np
 from AnyQt import QtWidgets 
 from AnyQt.QtWidgets import \
@@ -18,7 +18,7 @@ from orangewidget.workflow.drophandler import SingleUrlDropHandler
 
 from Orange.data.table import Table, get_sample_datasets_dir
 from Orange.data.io import FileFormat, UrlReader, \
-    class_from_qualified_name, GenericHDF5Reader # ALBA new import: GenericHDF5Reader
+    class_from_qualified_name, GenericHDF5Reader
 from Orange.data.io_base import MissingReaderException
 from Orange.util import log_warnings
 from Orange.widgets import widget, gui
@@ -533,6 +533,8 @@ class OWFile(widget.OWWidget, RecentPathsWComboMixin):
         while self.reader.data is None:
             QCoreApplication.processEvents() 
         
+        # Loop that prevents the program to keep running other commands while
+        # the user has not chosen which data to load
         while self.reader.data is None:
             QCoreApplication.processEvents() 
         
